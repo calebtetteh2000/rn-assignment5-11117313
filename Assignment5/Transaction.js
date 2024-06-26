@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     salary: {
         width: 90,
         height: 19,
-        right: 115,
+        right: 80,
         fontSize: 12,
         fontWeight: '400',
         color: '#0D0D26',

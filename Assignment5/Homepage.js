@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image, ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Transaction from './Transaction';
 
 const verticalData = [
@@ -13,9 +14,10 @@ const verticalData = [
 ]
 
 export default function Homepage(){
+    const navigation = useNavigation();
     return(
     <>
-        <ScrollView>
+        <ScrollView style={styles.container}>
             <View style={styles.container}>
                 <Image style={styles.profileImage} source={require("./assets/profile.png")} />
                 <Text style={styles.welcomeText}>Welcome back,</Text>
@@ -30,22 +32,22 @@ export default function Homepage(){
                     <Text style={styles.seeAllText}>See All</Text>
             </View>
             <View style={styles.container2}>
-            <View style={styles.roundBox1}>
-                <Image style={styles.sendImage} source={require("./assets/send.png")} />
-                <Text style={styles.sendText}>Sent</Text>
-            </View>
-            <View style={styles.roundBox2}>
-                <Image style={styles.recieveImage} source={require("./assets/recieve.png")} />
-                <Text style={styles.recieveText}>Receive</Text>
-            </View>
-            <View style={styles.roundBox3}>
-                <Image style={styles.loanImage} source={require("./assets/loan.png")} />
-                <Text style={styles.loanText}>Loan</Text>
-            </View>
-            <View style={styles.roundBox4}>
-                <Image style={styles.topUpImage} source={require("./assets/topUp.png")} />
-                <Text style={styles.topUpText}>Top Up</Text>
-            </View>
+                <View style={styles.roundBox1}>
+                    <Image style={styles.sendImage} source={require("./assets/send.png")} />
+                    <Text style={styles.sendText}>Sent</Text>
+                </View>
+                <View style={styles.roundBox2}>
+                    <Image style={styles.recieveImage} source={require("./assets/recieve.png")} />
+                    <Text style={styles.recieveText}>Receive</Text>
+                </View>
+                <View style={styles.roundBox3}>
+                    <Image style={styles.loanImage} source={require("./assets/loan.png")} />
+                    <Text style={styles.loanText}>Loan</Text>
+                </View>
+                <View style={styles.roundBox4}>
+                    <Image style={styles.topUpImage} source={require("./assets/topUp.png")} />
+                    <Text style={styles.topUpText}>Top Up</Text>
+                </View>
             </View>
             <FlatList
         vertical = {true}
@@ -66,7 +68,7 @@ export default function Homepage(){
         
 
         <View style={styles.footer}>
-            <TouchableOpacity style={styles.footerItem}>
+            <TouchableOpacity style={styles.footerItem} onPress={() => navigation.navigate('Home')}>
                 <Image style={styles.footerIcon} source={require("./assets/home.png")} />
                 <Text style={styles.footerText}>Home</Text>
             </TouchableOpacity>
@@ -78,7 +80,7 @@ export default function Homepage(){
                 <Image style={styles.footerIcon} source={require("./assets/statictics.png")} />
                 <Text style={styles.footerText}>Statistics</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.footerItem}>
+            <TouchableOpacity style={styles.footerItem} onPress={() => navigation.navigate('Settings')}>
                 <Image style={styles.footerIcon} source={require("./assets/settings.png")} />
                 <Text style={styles.footerText}>Settings</Text>
             </TouchableOpacity>
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingBottom: 0
+        marginTop: -25,
       },
       profileImage: {
         width: 70,
@@ -243,3 +245,5 @@ const styles = StyleSheet.create({
         color: '#929292',
       },
 })
+
+
