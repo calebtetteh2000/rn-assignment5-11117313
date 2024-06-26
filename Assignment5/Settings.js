@@ -1,4 +1,3 @@
-// Settings.js
 import React from 'react';
 import { View, Text, Switch, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
